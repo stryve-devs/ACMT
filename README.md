@@ -57,3 +57,26 @@ The project is configured to run on **Port 3001.
 * **`(marketing)`**: Routes that use the public landing page layout.
 * **`(dashboard)`**: Routes that require the authenticated Sidebar/Navbar layout.
 * **`(auth)`**: Logic for user sign-in/sign-up.
+
+---
+
+## ⚙️ Dynamic Features & Architecture
+
+ACMT is modeled after enterprise-grade conference toolkits, utilizing a dynamic architecture to manage the complex lifecycle of academic and industry events.
+
+### 1. Dynamic Workflow States
+Unlike static apps, the interface and permissions adapt dynamically based on the conference timeline:
+* **Submission Phase:** Authors can upload; Reviewers are locked out.
+* **Review Phase:** Submissions are frozen; Dynamic assignment logic distributes papers to reviewers.
+* **Decision Phase:** Real-time analytics for Chairs to aggregate scores and send notifications.
+
+### 2. Role-Based Dynamic Routing
+We use Next.js **Dynamic Segments** and Middleware to verify user roles on every request:
+* `src/app/(dashboard)/[conference-id]/[role]` → The UI adapts dynamically whether the user is an **Author**, **Reviewer**, or **Chair**.
+
+### 3. Dynamic Submission Handling
+* **Schema Flexibility:** Metadata for submissions (abstracts, keywords, file types) is handled dynamically to support different conference tracks.
+* **Real-time Status Tracking:** Paper statuses (Pending, Under Review, Accepted) update across the dashboard without full page reloads.
+
+### 4. Live Environment Sync
+The **Docker Volume** mapping ensures that as you develop new review algorithms or submission logic, the changes are dynamically reflected in the running container via Hot Module Replacement (HMR).
