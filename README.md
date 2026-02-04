@@ -29,7 +29,7 @@ ACMT/
 * **Node.js 20+** (if running locally without Docker).
 
 ### Development Environment (Docker)
-The project is configured to run on **Port 3001** to avoid macOS AirPlay conflicts.
+The project is configured to run on **Port 3001.
 
 **Start the containers:**
    ```bash
