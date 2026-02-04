@@ -1,0 +1,43 @@
+# Dependency directories
+node_modules/
+/jspm_packages/
+
+# Next.js build output
+.next/
+out/
+
+# IDE / Editor folders
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+
+# macOS system files
+.DS_Store
+Thumbs.db
+
+# Environment variables (Crucial for security)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.sample
+
+# Prisma
+/prisma/migrations/
+# Keep your schema but ignore the local SQLite db if you use it for testing
+*.db
+*.db-journal
+
+# Docker logs and data
+docker-compose.override.yml
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# TypeScript cache
+*.tsbuildinfo
+next-env.d.ts
